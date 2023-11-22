@@ -1,0 +1,498 @@
+:root {
+    --textlight: #121212;
+    --textdark: #ededed;
+    --bkglight: white;
+    --bkgdark: #121212;
+}
+
+::selection {
+    color: var(--textdark);
+    background-color: var(--bkgdark);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    color-scheme: light dark;
+    text-wrap: balance;
+}
+
+@property --bg-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: "<angle>";
+}
+
+@keyframes spin {
+    to {
+    --bg-angle: 360deg;
+    }
+}
+
+#cc-logo {
+    animation: spin 2.5s infinite linear paused;
+    background:
+    padding-box,
+    conic-gradient(
+        from var(--bg-angle) in oklch longer hue, oklch(75% 0.37 0) 0 0
+    )
+    border-box;
+    border: 6px solid none;
+    &:hover {
+        animation-play-state: running;
+    };
+    
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body {
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Satoshi', sans-serif;
+    color: #121212;
+    
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    overflow: hidden;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ededed;
+    transition: opacity 0.8s, visibility 0.8s;
+}
+
+.loader-inner {
+    bottom: 0;
+    height: 60px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+}
+
+.loader-line-wrap {
+    animation: 
+		load 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite
+;
+    box-sizing: border-box;
+    height: 50px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transform-origin: 50% 100%;
+    width: 100px;
+}
+
+.loader-line {
+    border: 4px solid transparent;
+    border-radius: 100%;
+    box-sizing: border-box;
+    height: 100px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+    background-image: linear-gradient(to right, #b827fc, #2c90fc, #b8fd33, #fec837, #fd1892);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+            mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    height: 90px;
+    width: 90px;
+    top: 7px;
+}
+
+.loader-line-wrap:nth-child(1) { animation-delay: -50ms; }
+
+@keyframes load {
+    0%, 15% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+hr {
+    width: 70%;
+    margin: 0 auto;
+}
+
+body:hover > #trailer {
+    opacity: 0.5;
+}
+
+#trailer {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    border: 1px solid #121212;
+    background: none;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: 0.1s ease-out;
+    pointer-events: none;
+    opacity: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: content-box;
+    padding: 12px;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+}
+
+header h1 {
+    margin: 0 auto;
+    font-weight: 700;
+}
+
+header ul {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    gap: 100px;
+    list-style: none;
+    font-weight: 400;
+}
+
+header a {
+    color: #121212;
+    text-decoration: none;
+}
+
+.fancy-link {
+    background-image: linear-gradient(90deg, #121212, #121212);
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    transition: background-size 150ms ease-in;
+}
+
+.fancy-link:hover {
+    background-size: 100% 2px;
+}
+
+#progress-bar {
+    --progress: 0;
+    height: 85px;
+    width: var(--progress);
+    background-color: #121212;
+    position: fixed;
+    z-index: -1;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 200px 0;
+}
+
+.content .title {
+    margin: 120px auto;
+    font-weight: 800;
+}
+
+.content p {
+    margin: 120px auto;
+    font-weight: 400;
+}
+
+.content-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.content-middle h1 {
+    margin: 120px auto;
+    font-weight: 800;
+}
+
+.content-middle p {
+    margin: 120px auto;
+    font-weight: 400;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: content-box;
+    padding: 24px;
+    width: 100%;
+    background-color: white;
+}
+
+footer .footer-name {
+    margin: 0 auto;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+footer ul {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    gap: 80px;
+    list-style: none;
+    font-weight: 400;
+}
+
+footer ul a{
+    text-decoration: none;
+    color: #121212;
+    font-size: 20px;
+}
+
+/* CONTACT PAGE */
+.email-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.email-contact p {
+    text-align: left;
+    padding-bottom: 80px;
+}
+.email-contact p a {
+    text-decoration: none;
+    color: #121212;
+    font-weight: 600;
+    background-image: linear-gradient(to right, #121212, #121212);
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    transition: background-size 150ms ease-in;
+}
+
+.email-contact p a:hover {
+    background-size: 100% 2px;
+}
+
+/* ABOUT PAGE */
+.about-me p {
+    font-size: 16px;
+    text-wrap: balance;
+    line-height: 1.6rem;
+}
+
+.about-me p span {
+    background-color: #121212;
+    color: #ededed;
+    padding: 6px;
+    font-weight: 600;
+}
+
+
+/* MEDIA QUERY SCREEN SIZE */
+
+@media only screen and (max-width: 750px) {
+    #progress-bar {
+        height: 76px;
+    }
+    h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+    p {
+        font-size: 18px;
+        text-align: center;
+    }
+    header ul {
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-between;
+        gap: 40px;
+        list-style: none;
+        font-weight: 400;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        padding: 100px 0;
+        padding-bottom: 250px;
+    }
+    
+    .content .title {
+        margin: 120px auto;
+        font-weight: 800;
+    }
+    
+    .content > p {
+        margin: auto;
+        font-weight: 400;
+        width: 300px;
+    }
+    
+    .content-middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        padding: 100px 0;
+    }
+    
+    .content-middle h1 {
+        margin: auto;
+        font-weight: 800;
+    }
+    
+    .content-middle p {
+        margin: 60px auto;
+        font-weight: 400;
+    }
+
+    footer .footer-name {
+        margin: 50px;
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 12px;
+    }
+
+    footer ul {
+        display: flex;
+        align-items: center;
+        margin: auto;
+        justify-content: space-between;
+        gap: 20px;
+        list-style: none;
+        font-weight: 400;
+    }
+
+    .email-contact > p {
+        font-size: 20px !important;
+        padding-bottom: 120px;
+    }
+
+    .about-me p {
+        width: 80%;
+        margin-bottom: 80px;
+    }
+}
+
+/* MEDIA QUERY DARK MODE */
+
+@media (prefers-color-scheme: dark) {
+    ::selection {
+        color: var(--textlight);
+        background-color: var(--bkglight);
+    }
+    .loader {
+        background: #121212;
+    }
+    body {
+        color: var(--textdark);
+        background-color: #121212;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--textdark);
+    }
+    #trailer {
+        border: 1px solid var(--textdark);
+    }
+    header {
+        background-color: #121212;
+    }
+    header a {
+        color: var(--textdark);
+    }
+    .fancy-link {
+        background-image: linear-gradient(90deg, #ededed, #ededed);
+        background-size: 0% 2px;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        transition: background-size 150ms ease-in;
+    }
+    .fancy-link:hover {
+        background-size: 100% 2px;
+    }
+    #progress-bar {
+        background-color: var(--textdark);
+    }
+    footer {
+        background-color: #121212;
+    }
+    footer ul a {
+        color: var(--textdark);
+    }
+    #cc-logo {
+        animation: spin 2.5s infinite linear paused;
+        background:
+        padding-box,
+        conic-gradient(
+            from var(--bg-angle) in oklch longer hue, oklch(1 0.37 0) 0 0
+        )
+        border-box;
+        border: 6px solid none;
+        &:hover {
+            animation-play-state: running;
+        };
+        
+        -webkit-background-clip: text;
+                background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .email-contact p a {
+        color: #ededed;
+        background-image: linear-gradient(to right, #ededed, #ededed);
+    }
+    .about-me p span {
+        background-color: #ededed;
+        color: #121212;
+    }
+}
