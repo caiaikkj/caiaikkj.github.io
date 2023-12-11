@@ -10,6 +10,11 @@
     background-color: var(--bkgdark);
 }
 
+.content-middle a {
+    text-decoration: none;
+    color: #fd1892;
+}
+
 img {
     display: block;
     max-width: 100%;
