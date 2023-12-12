@@ -10,6 +10,10 @@
     background-color: var(--bkgdark);
 }
 
+html {
+    width: 100vw;
+}
+
 .content-middle a {
     text-decoration: none;
     color: #fd1892;
@@ -507,23 +511,6 @@ footer ul a{
     }
     footer ul a {
         color: var(--textdark);
-    }
-    #cc-logo {
-        animation: spin 2.5s infinite linear paused;
-        background:
-        padding-box,
-        conic-gradient(
-            from var(--bg-angle) in oklch longer hue, oklch(1 0.37 0) 0 0
-        )
-        border-box;
-        border: 6px solid none;
-        &:hover {
-            animation-play-state: running;
-        };
-        
-        -webkit-background-clip: text;
-                background-clip: text;
-        -webkit-text-fill-color: transparent;
     }
     .email-contact p a {
         color: #ededed;
